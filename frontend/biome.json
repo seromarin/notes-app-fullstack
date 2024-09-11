@@ -12,6 +12,18 @@
 	"formatter": {
     "enabled": false
   },
+	"javascript": {
+    "formatter": {
+      "arrowParentheses":"asNeeded",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "semicolons": "always",
+      "trailingCommas": "all",
+			"quoteStyle": "single"
+    }
+  },
 	"json": {
     "formatter": {
       "enabled": false

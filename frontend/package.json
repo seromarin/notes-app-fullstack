@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:frontend": "node dist/frontend/server/server.mjs",
-    "format": "biome format --write \"src/**/*.ts\" \"src/**/*.html\" \"src/**/*.scss\"",
+    "format": "biome format --write ./",
     "lint": "biome lint --error-on-warnings ./src",
     "lint:fix": "biome lint --write ./src"
   },
@@ -44,5 +44,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.2"
-  }
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
 }
