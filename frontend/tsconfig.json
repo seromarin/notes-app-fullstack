@@ -24,7 +24,7 @@
       "dom"
     ],
     "types": [
-      "node"
+      "node",
     ]
   },
   "angularCompilerOptions": {
