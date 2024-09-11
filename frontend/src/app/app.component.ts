@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <h1>Welcome to {{title}}!</h1>
+    <h1 id="title">Welcome to {{title}}</h1>
   `,
   styles: [],
 })
