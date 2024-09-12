@@ -1,0 +1,33 @@
+@port = 8888
+
+### Health check
+
+GET http://localhost:{{port}}/ping
+
+### Get all todos
+
+GET http://localhost:{{port}}/api/todos
+
+### Create a todo
+POST http://localhost:{{port}}/api/todos
+Content-Type: application/json
+
+{
+  "body": "Buy milk",
+  "completed": false
+}
+
+### Patch a todo
+
+PATCH http://localhost:{{port}}/api/todos/1
+Content-Type: application/json
+
+{
+  "body": "Buy milk",
+  "completed": true
+}
+
+### Delete a todo
+
+DELETE http://localhost:{{port}}/api/todos/1
+Content-Type: application/json
