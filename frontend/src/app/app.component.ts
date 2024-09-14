@@ -10,13 +10,9 @@ import { TodoListComponent } from "@components/todos/list/list.component";
   imports: [NavbarComponent, TodoComponent, TodoFormComponent, TodoListComponent],
   template: `
     <app-navbar></app-navbar>
-    <app-todo>
-      <app-todo-form></app-todo-form>
-      <app-todo-list></app-todo-list>
-    </app-todo>
+    <app-todo></app-todo>
   `,
   styles: [],
 })
 export class AppComponent {
-  title = 'FRONTENDLAND!!';
 }

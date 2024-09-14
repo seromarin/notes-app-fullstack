@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { TodoFormComponent } from "./form/form.component";
+import { TodoListComponent } from "./list/list.component";
+import { TodosService } from './todos.service';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
   template: `
-    <ng-content />
+    <app-todo-form
+      (newTodo)="todoService.addNewTodo($event)"
+    ></app-todo-form>
+    <app-todo-list
+      [todos]="todoService.todos()"
+      (deleteTodo)="todoService.deleteTodo($event)"
+    ></app-todo-list>
   `,
   styles: `
     :host {
@@ -13,7 +22,8 @@ import { Component } from '@angular/core';
       align-items: center;
     }
   `,
+  imports: [TodoFormComponent, TodoListComponent],
 })
 export class TodoComponent {
-
+  todoService = inject(TodosService);
 }

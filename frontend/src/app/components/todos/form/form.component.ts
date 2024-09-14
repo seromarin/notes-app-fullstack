@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -27,20 +27,20 @@ import { MatIconModule } from '@angular/material/icon';
         <input 
           matInput
           type="text"
-          [(ngModel)]="newTodo"
-          name="newTodo"
+          [(ngModel)]="todo"
+          name="todo"
           class="form-input"
           required
         >
-        <button 
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="newTodo=''"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
       </mat-form-field>
+      <button 
+        mat-fab
+        aria-label="Clear"
+        type="button"
+        (click)="clearInput($event)"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
     </form>
   `,
   styles: `
@@ -49,14 +49,30 @@ import { MatIconModule } from '@angular/material/icon';
     }
 
     mat-form-field {
-      width: 50vw;
+      width: 40vw;
+      padding: 0 1rem;
     }
   `,
 })
 export class TodoFormComponent {
-  newTodo = '';
+  newTodo = output<string>();
+
+  todo = signal('initialValue');
 
   onSubmit() {
-    console.log('submit');
+    if (!this.todo().trim()) {
+      return;
+    }
+    this.newTodo.emit(this.todo());
+    this.resetTodoValue();
+  }
+
+  clearInput(event: Event) {
+    event.preventDefault();
+    this.resetTodoValue();
+  }
+
+  resetTodoValue() {
+    this.todo.set('');
   }
 }

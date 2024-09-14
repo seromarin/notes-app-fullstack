@@ -1,0 +1,17 @@
+@use '@angular/material' as mat;
+@import 'config-theme';
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+  density: (
+    scale: -1
+  )
+));
